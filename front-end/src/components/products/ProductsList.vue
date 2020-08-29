@@ -1,0 +1,31 @@
+/**
+  File Name:  /components/products/ProductsList.vue
+  Description: Products List 
+  Autor: Anselmo Velame
+  Email: design@anselmovelame.com.br
+  Github: https://github.com/avdesign
+ */
+
+<template>
+    <div class="d-flex align-items-stretch flex-wrap">
+        <product-card />        
+        <product-card />        
+        <product-card />        
+        <product-card />        
+        <product-card />        
+    </div>
+</template>
+
+<script>
+import ProductCard from './_partials/ProductCard.vue'
+export default {
+    components: {
+        ProductCard
+    }
+
+}
+</script>
+
+<style>
+
+</style>
