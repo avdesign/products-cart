@@ -1,6 +1,6 @@
 <p align="center"><img src="https://painel.avdesign.com.br/img/logo/login-title.png"></p>
 
-# Laravel Products/ Cart / Vue.js
+# Products/Cart - Laravel/Vue.js
 ### Instalação do Laravel
 ````
 $ cd laravel-products-cart
@@ -18,16 +18,17 @@ $ php artisan serve
 ````
 Se você está executando a API do Laravel em um caminho de URL diferente da `http://127.0.0.1:8000`, então você precisa atualizar o caminho do URL no `src/apis/Api.js` do Vue.js app.
 
-# Front-end Vue.js Instalar 
+# Install Front-end Vue.js
 ```
 $ cd front-end
+$ npm install
 $ npm run serve
 ```
 Copilar para prudução
 ```
-npm run build
+$ npm run build
 ```
 Verificar erros no código
 ```
-npm run lint
+$ npm run lint
 ```
