@@ -39,3 +39,17 @@
     })  
   }
 
+
+  export const removeProductCart = ({ commit }, product) => {
+    commit('REMOVE_PRODUCT_CART', product)
+
+    axios.delete(`http://127.0.0.1:8000/api/cart/${product.id}`)
+  }
+
+  export const clearCartItems = ({ commit }) => {
+    commit('CLEAR_CART_ITEMS')
+
+    axios.delete(`http://127.0.0.1:8000/api/cart`)
+
+  }
+

@@ -15,14 +15,14 @@
                     <br />{{ item.quantity }} x <strong>R$ {{ item.product.price}}</strong>
                 </div>
                 <div>
-                    <a href="#" class="badge badge-secondary">Excluir</a>
+                    <a href="#" class="badge badge-secondary" @click.prevent="removeProductCart(item.product)">Excluir</a>
                 </div>
             </div>
         </div>
         <hr>
         <div class="d-flex justify-content-between">
             <span>Total: <strong>$ {{ cartTotalPrice }}</strong></span>
-            <a href="#">Limpar</a>
+            <a href="#" @click.prevent="clearCartItems()">Limpar</a>
         </div>    
     </div>
 </template>
@@ -41,6 +41,16 @@ export default {
 
     mounted() {
         this.$store.dispatch('getCartItems')
+    },
+
+    methods: {
+        removeProductCart(product) {
+            this.$store.dispatch('removeProductCart', product)
+        },
+
+        clearCartItems() {
+            this.$store.dispatch('clearCartItems')
+        }
     }
 }
 </script>
