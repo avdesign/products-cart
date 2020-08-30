@@ -16,7 +16,7 @@ class CartController extends Controller
     public function index()
     {
         return Cart::with('product')
-            ->orderBy('created', 'desc')
+            ->orderBy('created_at', 'desc')
             ->get();
     }
 
@@ -28,8 +28,9 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $item = Cart::where('product_id', $request->product_id);
-        if (count($item)) {
+
+        $item = Cart::where('product_id', $request->product_id)->first();
+        if (!empty($item)) {
             $item->increment('quantity');
             $item = $item->first();
         } else {
@@ -54,7 +55,7 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        //
+        dd('show');
     }
 
 
@@ -67,7 +68,7 @@ class CartController extends Controller
      */
     public function update(Request $request, Cart $cart)
     {
-        //
+        dd('update');
     }
 
     /**

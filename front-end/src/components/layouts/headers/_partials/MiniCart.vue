@@ -8,11 +8,11 @@
 
 <template>
     <div class="cart-navbar dropdown-menu p-2" aria-labelledby="triggerId">
-        <div>
+        <div v-for="item in cart" :key="item.product.id">
             <div class="px-2 d-flex justify-content-between">
                 <div>
-                    <strong>Product Title</strong>
-                    <br />1 x <strong>R$ 40,00</strong>
+                    <strong>{{ item.product.title }}</strong>
+                    <br />{{ item.quantity }} x <strong>R$ {{ item.product.price}}</strong>
                 </div>
                 <div>
                     <a href="#" class="badge badge-secondary">Excluir</a>
@@ -21,7 +21,7 @@
         </div>
         <hr>
         <div class="d-flex justify-content-between">
-            <span>Total: <strong>$ 23,00</strong></span>
+            <span>Total: <strong>$ {{ cartTotalPrice }}</strong></span>
             <a href="#">Limpar</a>
         </div>    
     </div>
@@ -29,7 +29,19 @@
 
 <script>
 export default {
+    computed: {
+        cart() {
+            return this.$store.state.cart
+        },
 
+        cartTotalPrice() {
+            return this.$store.getters.cartTotalPrice
+        }
+    },
+
+    mounted() {
+        this.$store.dispatch('getCartItems')
+    }
 }
 </script>
 

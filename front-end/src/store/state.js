@@ -8,5 +8,6 @@
 
 export default {
     products: [],
-    product: null
+    product: null,
+    cart: []
 }
