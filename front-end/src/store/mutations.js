@@ -6,4 +6,10 @@
   Github: https://github.com/avdesign
  */
 
-export default {}
+export const SET_PRODUCTS = (state, products) => {
+  state.products = products
+}
+
+export const SET_PRODUCT = (state, product) => {
+  state.product = product
+}

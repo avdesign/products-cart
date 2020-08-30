@@ -6,4 +6,3 @@
   Github: https://github.com/avdesign
  */
 
-export default {}

@@ -8,11 +8,7 @@
 
 <template>
     <div class="d-flex align-items-stretch flex-wrap">
-        <product-card />        
-        <product-card />        
-        <product-card />        
-        <product-card />        
-        <product-card />        
+        <product-card v-for="product in products" :key="product.id" :product="product" />       
     </div>
 </template>
 
@@ -21,6 +17,16 @@ import ProductCard from './_partials/ProductCard.vue'
 export default {
     components: {
         ProductCard
+    },
+
+    computed: {
+        products() {
+            return this.$store.state.products
+        }
+    },
+
+    mounted() {
+        this.$store.dispatch('getProducts')
     }
 
 }
