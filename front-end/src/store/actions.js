@@ -6,35 +6,35 @@
   Github: https://github.com/avdesign
  */
 
- import axios from 'axios'
+ import ProductService from '../services/ProductService.js'
+ import CartService from '../services/CartService.js'
+
 
  export const getProducts = ({ commit }) => {
-   axios.get(`http://127.0.0.1:8000/api/products`)
-    .then(response => {
+  ProductService.all().then(response => {
       commit('SET_PRODUCTS', response.data)
     })
  }
 
 
   export const getProduct = ({ commit }, productId) => {
-    axios.get(`http://127.0.0.1:8000/api/products/${productId}`)
-    .then(response => {
+    ProductService.show(productId).then(response => {
       commit('SET_PRODUCT', response.data)
     })
-  } 
+  }
+
 
   export const addProductToCart = ({ commit }, { product, quantity }) => {
     commit('ADD_TO_CART', { product, quantity })
 
-    axios.post(`http://127.0.0.1:8000/api/cart`, {
+    CartService.store({
       product_id: product.id,
       quantity
     })
   }
 
   export const getCartItems = ({ commit }) => {
-    axios.get(`http://127.0.0.1:8000/api/cart`)
-    .then(response => {
+    CartService.all().then(response => {
       commit('SET_CART', response.data)
     })  
   }
@@ -42,14 +42,11 @@
 
   export const removeProductCart = ({ commit }, product) => {
     commit('REMOVE_PRODUCT_CART', product)
-
-    axios.delete(`http://127.0.0.1:8000/api/cart/${product.id}`)
+    CartService.delete(product.id)
   }
 
   export const clearCartItems = ({ commit }) => {
     commit('CLEAR_CART_ITEMS')
-
-    axios.delete(`http://127.0.0.1:8000/api/cart`)
-
+    CartService.deleteAll()
   }
 
