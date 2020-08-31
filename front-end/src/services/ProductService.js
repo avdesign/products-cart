@@ -7,16 +7,16 @@
  */
 
  import Api from '../axios/index.js'
- //import { API_VERSION } from '../configs/api.js'
+ import { API_VERSION } from '../configs/api.js'
 
  const END_POINT = 'products'
 
  export default {
     all() {
-        return Api.get(END_POINT)
+        return Api.get(`${API_VERSION}/${END_POINT}`)
     },
 
     show(id) {
-        return Api.get(`${END_POINT}/${id}`)
+        return Api.get(`${API_VERSION}/${END_POINT}/${id}`)
     }
  }
