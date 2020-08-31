@@ -16,9 +16,18 @@ import * as getters from './getters'
 import * as mutations from './mutations'
 import * as actions from './actions'
 
+import product from './modules/products/index.js'
+import cart from './modules/cart/index.js'
+
+
 export default new Vuex.Store({
     state,
     getters,
     mutations,
-    actions
+    actions,
+
+    modules: {
+      product,
+      cart
+    }
 })

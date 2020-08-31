@@ -21,7 +21,9 @@ export default {
     },
 
     computed: {
-        ...mapState(['products'])
+        ...mapState({
+            products: state => state.product.products
+        })
     },
 
     mounted() {

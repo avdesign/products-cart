@@ -1,9 +1,7 @@
 /**
-  File Name:  /store/state.js
-  Description: State
+  File Name:  /store/modules/products/getters.js
+  Description: Module getters product
   Autor: Anselmo Velame
   Email: design@anselmovelame.com.br
   Github: https://github.com/avdesign
  */
-
-export default {}
