@@ -9,6 +9,9 @@
 import axios from 'axios'
 import { URI_BASE_API } from '../configs/api.js'
 
+/*************************************************
+  Solicitações HTTP
+*************************************************/
 const Api = axios.create({
     baseURL: URI_BASE_API
 })

@@ -10,7 +10,14 @@
     Total - items quantity
 *************************************************/
 export const cartItemsCount = (state) => {
-  return state.cart.length;
+  let quantity = 0;
+
+  state.cart.forEach(item => {
+    quantity += item.quantity;
+  })
+
+  return quantity;
+
 }
 
 /*************************************************
