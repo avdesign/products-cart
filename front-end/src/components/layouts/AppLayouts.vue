@@ -17,6 +17,7 @@
 <script>
 import AppHeader from './headers/AppHeader.vue'
 import AppFooter from './footers/AppFooter.vue'
+
 export default {
     components: {
         AppHeader,

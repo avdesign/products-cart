@@ -8,28 +8,44 @@
 
 import CartService from '@/services/CartService.js'
 
-export const addProductToCart = ({ commit }, { product, quantity }) => {
-  commit('ADD_TO_CART', { product, quantity })
+export const addProductToCart = ({ commit, dispatch }, { product, quantity }) => {
+  commit('ADD_TO_CART', { product, quantity });
+
+  dispatch('addNotification', {
+      type: 'success',
+      message: 'O produto foi adicionado ao carrinho.'
+  }, { root: true });
 
   CartService.store({
-    product_id: product.id,
-    quantity
-  })
+      product_id: product.id,
+      quantity
+  });
 }
 
 export const getCartItems = ({ commit }) => {
   CartService.all().then(response => {
-    commit('SET_CART', response.data)
-  })  
+      commit('SET_CART', response.data);
+  })
 }
 
+export const removeProductCart = ({ commit, dispatch }, product) => {
+  commit('REMOVE_PRODUCT_CART', product);
 
-export const removeProductCart = ({ commit }, product) => {
-  commit('REMOVE_PRODUCT_CART', product)
-  CartService.delete(product.id)
+  dispatch('addNotification', {
+      type: 'success',
+      message: 'O produto foi removido do carrinho.'
+  }, { root: true });
+
+  CartService.delete(product.id);
 }
 
-export const clearCartItems = ({ commit }) => {
-  commit('CLEAR_CART_ITEMS')
-  CartService.deleteAll()
+export const clearCartItems = ({ commit, dispatch }) => {
+  commit('CLEAR_CART_ITEMS');
+
+  dispatch('addNotification', {
+      type: 'success',
+      message: 'Todos os produtos foram removidos do carrinho.'
+  }, { root: true });
+
+  CartService.deleteAll();
 }

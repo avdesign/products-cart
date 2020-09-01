@@ -41,13 +41,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import MiniCart from './_partials/MiniCart.vue'
+
 export default {
-  components: { MiniCart },  
+  components: { MiniCart },
   
   computed: {
-    ...mapGetters(['cartItemsCount'])
+    ...mapGetters('cart', ['cartItemsCount'])
   }
-}
+};
 </script>
 
 <style>

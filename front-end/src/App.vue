@@ -8,19 +8,23 @@
 
 <template>
   <div id="app">
-    <app-layouts></app-layouts>
-    
+    <div class="container">
+      <app-layouts></app-layouts>
+    </div>
+    <notifications-list />    
   </div>
 </template>
 
 
 <script>
 import AppLayouts from './components/layouts/AppLayouts.vue'
+import NotificationsList from './components/notifications/NotificationsList.vue'
 
 export default {
   name: 'app',
   components: {
-    AppLayouts
+    AppLayouts,
+    NotificationsList
   }
 }
 </script>

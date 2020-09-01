@@ -22,7 +22,9 @@ Route::group([
     'prefix' => 'v1',
     'namespace' => 'Api'
 ], function () {
+
     Route::resource('products', 'ProductController', ['only' => ['index', 'show']]);
     Route::resource('cart', 'CartController', ['except' => ['create', 'edit', 'update']]);
     Route::delete('cart', 'CartController@destroyAll');
+
 });

@@ -8,15 +8,15 @@
 
 import ProductService from '@/services/ProductService.js'
 
+
 export const getProducts = ({ commit }) => {
   ProductService.all().then(response => {
-      commit('SET_PRODUCTS', response.data)
-    })
+      commit('SET_PRODUCTS', response.data);
+  })
 }
-
 
 export const getProduct = ({ commit }, productId) => {
   ProductService.show(productId).then(response => {
-    commit('SET_PRODUCT', response.data)
+      commit('SET_PRODUCT', response.data);
   })
 }

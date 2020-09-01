@@ -31,22 +31,22 @@
 import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
-    computed: {
-        ...mapState({
-            cart: state => state.cart.cart
-        }),
 
-        ...mapGetters(['cartTotalPrice'])
+    computed: {
+        ...mapState('cart', ['cart']),
+
+        ...mapGetters('cart', ['cartTotalPrice'])
     },
 
     mounted() {
-        this.getCartItems();
+        this.getCartItems()
     },
 
     methods: {
-        ...mapActions(['removeProductCart', 'clearCartItems', 'getCartItems'])        
+        ...mapActions('cart', ['removeProductCart','clearCartItems','getCartItems'])
     }
 }
+
 </script>
 
 <style scoped>
@@ -55,5 +55,4 @@ export default {
     right: 0;
     left: auto;
 }
-
-</style>>
+</style>

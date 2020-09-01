@@ -6,12 +6,13 @@
   Github: https://github.com/avdesign
  */
 
-import state from './state.js'
-import * as getters from './getters.js'
-import * as mutations from './mutations.js'
-import * as actions from './actions.js'
+import state from "./state";
+import * as getters from "./getters";
+import * as mutations from "./mutations";
+import * as actions from "./actions";
 
 export default {
+  namespaced: true,
   state,
   getters,
   mutations,

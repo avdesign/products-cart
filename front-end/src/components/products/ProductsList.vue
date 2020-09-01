@@ -15,15 +15,14 @@
 <script>
 import { mapState, mapActions} from 'vuex'
 import ProductCard from './_partials/ProductCard.vue'
+
 export default {
     components: {
         ProductCard
     },
 
     computed: {
-        ...mapState({
-            products: state => state.product.products
-        })
+        ...mapState("product", ["products"])
     },
 
     mounted() {
@@ -31,7 +30,7 @@ export default {
     },
 
     methods: {
-        ...mapActions(['getProducts'])
+        ...mapActions("product", ["getProducts"])
     }
 
 }

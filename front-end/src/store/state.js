@@ -6,4 +6,6 @@
   Github: https://github.com/avdesign
  */
 
-export default {}
+export default {
+  notifications: []
+}
